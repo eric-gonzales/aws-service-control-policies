@@ -1,0 +1,28 @@
+{
+  "Statement": [
+    {
+      "Sid": "DenyAllOutsideofEUWest2",
+      "Effect": "Deny",
+      "NotAction": [
+        "iam:*",
+        "organizations:*",
+        "route53:*",
+        "budgets:*",
+        "waf:*",
+        "cloudfront:*",
+        "globalaccelerator:*",
+        "importexport:*",
+        "support:*",
+        "sts:*"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringNotEquals": {
+          "aws:RequestedRegion": [
+            "eu-west-2"
+          ]
+        }
+      }
+    }
+  ]
+}
